@@ -70,9 +70,9 @@ public class PlantContentProvider extends ContentProvider {
                         projection,
                         "_id=?",
                         new String[]{id},
-                    null,
-                    null,
-                    sortOrder);
+                        null,
+                        null,
+                        sortOrder);
                 break;
             default:
                 throw new UnsupportedOperationException("Unknown uri: " + uri);
@@ -141,16 +141,13 @@ public class PlantContentProvider extends ContentProvider {
         int plantsUpdated;
         //match
         switch (match) {
-            case PLANTS:
-                plantsUpdated = db.update(PlantContract.PlantEntry.TABLE_NAME, contentValues, selection, selectionArgs);
-                break;
+//            case PLANTS:
+//                plantsUpdated = db.update(PlantContract.PlantEntry.TABLE_NAME, contentValues, selection, selectionArgs);
+//                break;
             case PLANT_WITH_ID:
-                if (selection == null)
-                {
+                if (selection == null) {
                     selection = PlantContract.PlantEntry._ID + "=?";
-                }
-                else
-                {
+                } else {
                     selection += " AND " + PlantContract.PlantEntry._ID + "=?";
                 }
                 String id = uri.getPathSegments().get(1);
